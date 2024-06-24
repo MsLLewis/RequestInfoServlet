@@ -1,5 +1,6 @@
 package com.lewis.requestinfoservlet;
 
+import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,9 +13,12 @@ import java.util.Enumeration;
 
 @WebServlet(name = "requestInfoServlet", value = "/request-info")
 public class RequestInfoServlet extends HttpServlet {
+
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        ServletConfig sc = getServletConfig();
+        System.out.println(sc.getInitParameter("email"));
     }
 
     @Override
